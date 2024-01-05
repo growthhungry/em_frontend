@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>971289799294-1l5q1u4gd19s0g0lrhqlt6k8iu9ef1oe.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.971289799294-1l5q1u4gd19s0g0lrhqlt6k8iu9ef1oe</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>971289799294-0m3ucf5nt3ig5fo6n2clln5gc9iga78p.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC7QH3wQ_7M59bdCcbnHmxsy87iwgAEIwE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>971289799294</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.enelerMariia.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>eneler-mariia</string>
+	<key>STORAGE_BUCKET</key>
+	<string>eneler-mariia.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:971289799294:ios:c27505d72188d227fe062f</string>
+</dict>
+</plist>
