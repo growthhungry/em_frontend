@@ -14,3 +14,9 @@ const speakerTextStyle = TextStyle(
     color: Color.fromRGBO(58, 58, 58, 1),
     letterSpacing: -0.3,
     fontWeight: FontWeight.w400);
+
+const headerSurveyTextStyle = TextStyle(
+    fontFamily: 'GoogleSans',
+    fontSize: 24,
+    fontWeight: FontWeight.w500,
+    letterSpacing: -0.48);

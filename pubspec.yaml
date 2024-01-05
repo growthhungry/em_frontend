@@ -51,6 +51,17 @@ flutter:
     - assets/flags/
     - assets/icons/
 
+  fonts:
+    - family: GoogleSans
+      fonts:
+        - asset: assets/fonts/GoogleSans-Regular.ttf
+        - asset: assets/fonts/GoogleSans-Medium.ttf
+          style: normal
+
+
+
+
+
 
   #  fonts:
   #    - family: GoogleSans
