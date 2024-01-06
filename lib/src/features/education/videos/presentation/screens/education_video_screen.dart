@@ -31,10 +31,7 @@ class _EducationVideoScreenState extends State<EducationVideoScreen> {
               'Спикер: Михаил Ледер',
               style: speakerTextStyle,
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Text('he'),
-            )
+
           ],
         ),
       )),
