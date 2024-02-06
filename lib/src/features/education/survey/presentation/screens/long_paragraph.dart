@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class OneAnswerScreen extends StatefulWidget {
-  const OneAnswerScreen({super.key});
+class LongParagraphScreen extends StatefulWidget {
+  const LongParagraphScreen({super.key});
 
   @override
-  State<OneAnswerScreen> createState() => _OneAnswerScreenState();
+  State<LongParagraphScreen> createState() => _LongParagraphScreenState();
 }
 
-class _OneAnswerScreenState extends State<OneAnswerScreen> {
+class _LongParagraphScreenState extends State<LongParagraphScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,17 +17,17 @@ class _OneAnswerScreenState extends State<OneAnswerScreen> {
           children: <Widget>[
             const Flexible(
                 child: Padding(
-              padding: EdgeInsets.only(left: 16),
-              child: Text(
-                'Напишите эссе на тему синдром самозванца:',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 24,
-                    letterSpacing: -0.48,
-                    fontFamily: 'GoogleSans'),
-              ),
-            )),
+                  padding: EdgeInsets.only(left: 16),
+                  child: Text(
+                    'Что вы поняли под термином "синдром самозванца"?',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 24,
+                        letterSpacing: -0.48,
+                        fontFamily: 'GoogleSans'),
+                  ),
+                )),
             const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -39,7 +39,7 @@ class _OneAnswerScreenState extends State<OneAnswerScreen> {
                         borderSide: const BorderSide(
                             color: Color.fromRGBO(147, 147, 147, 1),
                             width: 2)),
-                hintText: 'Напишите свой текст здесь'
+                    hintText: 'Напишите свой текст здесь'
                 ),
               ),
             ),

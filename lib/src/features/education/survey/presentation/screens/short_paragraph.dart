@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class OneAnswerScreen extends StatefulWidget {
-  const OneAnswerScreen({super.key});
+class ShortParagraphScreen extends StatefulWidget {
+  const ShortParagraphScreen({super.key});
 
   @override
-  State<OneAnswerScreen> createState() => _OneAnswerScreenState();
+  State<ShortParagraphScreen> createState() => _ShortParagraphScreenState();
 }
 
-class _OneAnswerScreenState extends State<OneAnswerScreen> {
+class _ShortParagraphScreenState extends State<ShortParagraphScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,30 +17,28 @@ class _OneAnswerScreenState extends State<OneAnswerScreen> {
           children: <Widget>[
             const Flexible(
                 child: Padding(
-              padding: EdgeInsets.only(left: 16),
-              child: Text(
-                'Напишите эссе на тему синдром самозванца:',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 24,
-                    letterSpacing: -0.48,
-                    fontFamily: 'GoogleSans'),
-              ),
-            )),
+                  padding: EdgeInsets.only(left: 16),
+                  child: Text(
+                    'Опишите одним словом "синдром самозванца"?',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 24,
+                        letterSpacing: -0.48,
+                        fontFamily: 'GoogleSans'),
+                  ),
+                )),
             const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
-                maxLines: 15,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
                         borderSide: const BorderSide(
                             color: Color.fromRGBO(147, 147, 147, 1),
                             width: 2)),
-                hintText: 'Напишите свой текст здесь'
-                ),
+                    hintText: 'Напишите свой текст здесь'),
               ),
             ),
             const Spacer(),

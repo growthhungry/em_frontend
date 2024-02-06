@@ -17,7 +17,7 @@ class Runner {
             WidgetsFlutterBinding.ensureInitialized();
         FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-        SystemChrome.setPreferredOrientations([
+        SystemChrome.setPreferredOrientations ([
           DeviceOrientation.portraitUp,
         ]);
 

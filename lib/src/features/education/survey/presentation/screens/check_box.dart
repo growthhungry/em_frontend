@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 
-class OneAnswerScreen extends StatefulWidget {
-  const OneAnswerScreen({super.key});
+class CheckBoxScreen extends StatefulWidget {
+  const CheckBoxScreen({super.key});
 
   @override
-  State<OneAnswerScreen> createState() => _OneAnswerScreenState();
+  State<CheckBoxScreen> createState() => _CheckBoxScreenState();
 }
 
-class _OneAnswerScreenState extends State<OneAnswerScreen> {
+class _CheckBoxScreenState extends State<CheckBoxScreen> {
+
+  Map<String, bool> symptoms = {
+    'Самоуничтожение': false,
+    'Тревога': false,
+    'Одиночество': false,
+    'Неуверенность': false,
+    'Страх': false,
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,19 +26,33 @@ class _OneAnswerScreenState extends State<OneAnswerScreen> {
           children: <Widget>[
             const Flexible(
                 child: Padding(
-              padding: EdgeInsets.only(left: 16),
-              child: Text(
-                'Напишите эссе на тему синдром самозванца:',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 24,
-                    letterSpacing: -0.48,
-                    fontFamily: 'GoogleSans'),
-              ),
-            )),
+                  padding: EdgeInsets.only(left: 16),
+                  child: Text(
+                    'Какие признаки характеризуют синдром самозванца?',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 24,
+                        letterSpacing: -0.48,
+                        fontFamily: 'GoogleSans'),
+                  ),
+                )),
             const SizedBox(height: 20),
-            Padding(
+            Column(
+    children: symptoms.keys.map((String symptom) {
+    return CheckboxListTile(
+    title: Text(symptom),
+    value: symptoms[symptom]!,
+    onChanged: (bool? value) {
+    setState(() {
+    symptoms[symptom] = value!;
+    });
+    },
+      controlAffinity: ListTileControlAffinity.leading,
+    );
+    }).toList(),
+            ),
+            /*Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 maxLines: 15,
@@ -39,10 +62,10 @@ class _OneAnswerScreenState extends State<OneAnswerScreen> {
                         borderSide: const BorderSide(
                             color: Color.fromRGBO(147, 147, 147, 1),
                             width: 2)),
-                hintText: 'Напишите свой текст здесь'
+                    hintText: 'Напишите свой текст здесь'
                 ),
               ),
-            ),
+            ),*/
             const Spacer(),
             Padding(
               padding: const EdgeInsets.only(top: 16, bottom: 12),
