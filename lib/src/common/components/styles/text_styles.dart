@@ -20,3 +20,10 @@ const headerSurveyTextStyle = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w500,
     letterSpacing: -0.48);
+
+const hintSurveyTextSyle = TextStyle(
+  fontFamily: 'GoogleSans',
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.w100,
+  fontSize: 16,
+);

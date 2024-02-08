@@ -1,4 +1,13 @@
 {
   "@@locale": "ky",
-  "russian": "Орусча"
+  "russian": "Орусча",
+  "aboutMe": "Расскажите немного о себе, не более 1000 символов",
+  "writeYourTextHere" : "Write your text here"
+
+  ,
+  "further" : "Further",
+  "right" : "Right",
+  "wrong" : "Wrong",
+  "youAnsweredCorrectly" : "You answered correctrly:",
+  "correctAnswer" : "Correct answer:"
 }

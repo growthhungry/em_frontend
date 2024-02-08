@@ -1,0 +1,14 @@
+{
+    "imageUrl": "",
+    "name": "",
+    "lessonDescription": "",
+    "speaker": "",
+    "availableUntil": "",
+    "passed": false,
+    "questions": {
+        "type": "",
+        "question": "",
+        "correctlyAnswer": "",
+        "answers": []
+    }
+}

@@ -1,4 +1,11 @@
 {
   "@@locale": "en",
-  "russian": "Russian"
+  "russian": "Russian",
+  "aboutMe" : "tell us a little about yourself, no more than 1000 characters",
+  "writeYourTextHere" : "Write your text here",
+  "further" : "Further",
+  "right" : "Right",
+  "wrong" : "Wrong",
+  "youAnsweredCorrectly" : "You answered correctrly:",
+  "correctAnswer" : "Correct answer:"
 }

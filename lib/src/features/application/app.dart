@@ -1,13 +1,10 @@
-import 'package:eneler_mariia/src/features/application/widgets/navigation_widget.dart';
 import 'package:eneler_mariia/src/features/application/wrappers/localizations_wrapper.dart';
-import 'package:eneler_mariia/src/features/profile/presentation/screen/profile_screen.dart';
+import 'package:eneler_mariia/src/features/authentication/presentation/screens/about_me_screen.dart';
+import 'package:eneler_mariia/src/features/education/survey/presentation/screens/survey_screen.dart';
+import 'package:eneler_mariia/src/features/education/survey/presentation/widgets/describe_one_answer_widget.dart';
+import 'package:eneler_mariia/src/features/education/survey/presentation/widgets/fill_text_field_widget.dart';
+import 'package:eneler_mariia/src/features/education/survey/presentation/widgets/switch_answer_widget.dart';
 import 'package:flutter/material.dart';
-
-import '../authentication/authentication_listener/authentication_listener.dart';
-import '../authentication/presentation/screens/authentication_screen.dart';
-import '../education/survey/presentation/screens/multiple_choice_screen.dart';
-import '../education/videos/presentation/screens/education_video_screen.dart';
-import '../education/videos/presentation/screens/video_list_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class App extends StatelessWidget {
@@ -20,6 +17,7 @@ class App extends StatelessWidget {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
-        home: MultipleChoiceScreen());
+        theme: ThemeData(useMaterial3: true),
+        home: SwitchAnswerWidget());
   }
 }
