@@ -1,0 +1,60 @@
+{
+    "lessonId": "123",
+    "imageUrl": "https://example.com/speaker-image.jpg",
+    "name": "Синдром самозванца",
+    "speaker": "Михаил Ледер",
+    "description": "Все о синдроме самозванца, как с ним справиться и жить уверенно",
+    "availableUntil": "15.10.2023",
+    "passed": false,
+    "linkToYoutubeVideo": "",
+    "completionMessage": "Теперь вы знаете больше о синдроме самозванца",
+    "questions": [
+        {
+            "type": "answerOptions",
+            "question": "Синдром самозванца больше характерен для:",
+            "correctlyAnswer": "Людей с низкой самооценкой",
+            "answers": [
+                "Людей с низкой самооценкой",
+                "Людей с высокой самооценкой",
+                "Нет правильного ответа",
+                "Оба варианта"
+            ]
+        },
+        {
+            "type": "longAnswer",
+            "question": "Напишите эссе на тему синдром самозванца",
+            "correctlyAnswer": null,
+            "answers": []
+        },
+        {
+            "type": "shortAnswer",
+            "question": "Опишите одним словом \"Синдром самозванца\"?",
+            "correctlyAnswer": null,
+            "answers": []
+        },
+        {
+            "type": "checkBoxses",
+            "question": "Какие признаки характеризуют синдром самозванца?",
+            "correctlyAnswer": null,
+            "asnwers": [
+                "Самоунижение",
+                "Тревога",
+                "Одиночество",
+                "Неуверенность",
+                "Страх"
+            ]
+        },
+        {
+            "type": "multipleChoiceOfCheckBoxses",
+            "question": "Какие признаки характеризуют синдром самозванца?",
+            "correctlyAnswer": null,
+            "asnwers": [
+                "Самоунижение",
+                "Тревога",
+                "Одиночество",
+                "Неуверенность",
+                "Страх"
+            ]
+        }
+    ]
+}

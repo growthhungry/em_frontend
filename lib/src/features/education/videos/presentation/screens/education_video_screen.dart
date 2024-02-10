@@ -1,17 +1,22 @@
 import 'package:eneler_mariia/src/common/components/styles/text_styles.dart';
+import 'package:eneler_mariia/src/common/widgets/buttons/further_button_widget.dart';
+import 'package:eneler_mariia/src/features/education/survey/presentation/screens/test_screen.dart';
+import 'package:eneler_mariia/src/features/education/survey/presentation/widgets/switch_answer_widget.dart';
+import 'package:eneler_mariia/src/features/education/videos/domain/entities/training_video_entity.dart';
 import 'package:flutter/material.dart';
 
 class EducationVideoScreen extends StatefulWidget {
-  const EducationVideoScreen({super.key});
+  const EducationVideoScreen({super.key, required this.trainingVideoEntity});
 
+  final TrainingVideoEntity trainingVideoEntity;
   @override
   State<EducationVideoScreen> createState() => _EducationVideoScreenState();
 }
 
 class _EducationVideoScreenState extends State<EducationVideoScreen> {
-
   @override
   Widget build(BuildContext context) {
+    final data = widget.trainingVideoEntity;
     return Scaffold(
       appBar: _CustomAppBar(),
       body: SafeArea(
@@ -20,21 +25,25 @@ class _EducationVideoScreenState extends State<EducationVideoScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            SizedBox(
+              height: 182,
+            ),
             Text(
-              'Синдром самозванца',
+              data.name,
               style: headerTextStyle,
             ),
+            Text(data.descrpiption, style: descriptionTextStyle),
             Text(
-                'Все о синдроме самозванца, как с ним справиться и жить уверенно',
-                style: descriptionTextStyle),
-            Text(
-              'Спикер: Михаил Ледер',
+              data.speaker,
               style: speakerTextStyle,
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Text('he'),
-            )
+            Spacer(),
+            FurtherButtonWidget(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TestScreen(
+                            trainingVideoEntity: widget.trainingVideoEntity))))
           ],
         ),
       )),

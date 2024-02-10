@@ -34,11 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Center(
         child: Column(
           children: [
-            SvgPicture.asset(
-              'assets/icons/russian_flag.svg',
-              height: 100,
-              width: 100,
-            ),
+            const SizedBox(height: 50),
             Container(
               margin: const EdgeInsets.only(left: 16, right: 16),
               height: 106,
@@ -57,16 +53,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: <Widget>[
                   _SettingItemWidget(
                       iconAssetPath: 'assets/icons/language.svg',
-                      title: AppLocalizations.of(context)!.russian,
-                      voidCallback: () =>
-                          showSelectLang(languageCode, langList)),
+                      title: AppLocalizations.of(context)!.language,
+                      voidCallback: () {
+                        showSelectLang(languageCode, langList);
+                      }),
                   const Divider(
                     height: 1,
                     color: Color.fromRGBO(202, 202, 202, 1),
                   ),
                   _SettingItemWidget(
                       iconAssetPath: 'assets/icons/exit.svg',
-                      title: '',
+                      title: AppLocalizations.of(context)!.exit,
                       voidCallback: () {})
                 ],
               ),
@@ -82,6 +79,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     setState(() {
       LocalizationsWrapper.of(context).selectLanguage(languageCode[index]);
     });
+
+    Navigator.of(context).pop();
   }
 
   void showSelectLang(List<String> languageCode, List<String> languageList) =>
@@ -106,7 +105,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             : const SizedBox(),
 
                         /// This code [ Error ] does not show  icons
-                        leading: SvgPicture.asset('assets/flags/russia.svg'),
+                        // leading: SvgPicture.asset('assets/flags/russia.svg'),
                       ),
                     );
                   }),

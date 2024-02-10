@@ -7,5 +7,9 @@
   "right" : "Right",
   "wrong" : "Wrong",
   "youAnsweredCorrectly" : "You answered correctrly:",
-  "correctAnswer" : "Correct answer:"
+  "correctAnswer" : "Correct answer:",
+  "lessonCompletedSuccesffuly" : "Lesson completed succesffuly",
+  "toMain" : "To main",
+  "exit" : "Exit",
+  "language" : "Language"
 }

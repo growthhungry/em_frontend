@@ -7,5 +7,9 @@
   "right": "Правильно",
   "wrong": "Не правильно",
   "youAnsweredCorrectly": "Вы ответили правильно:",
-  "correctAnswer": "Правильный ответ:"
+  "correctAnswer": "Правильный ответ:",
+  "lessonCompletedSuccesffuly": "Урок успешно завершен!",
+  "toMain": "На главную",
+  "exit" : "Выход",
+  "language" : "Язык"
 }

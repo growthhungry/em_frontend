@@ -1,32 +1,36 @@
-import 'package:eneler_mariia/src/common/widgets/buttons/further_button_widget.dart';
-import 'package:eneler_mariia/src/features/education/survey/presentation/widgets/answer_to_question_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:eneler_mariia/src/features/education/survey/presentation/widgets/answer_to_question_widget.dart';
+import 'package:eneler_mariia/src/features/education/videos/domain/entities/questions_entity.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-const _questions = <String>[
-  'Людей с высокой самооценкой',
-  'Людей с низкой самооценокой',
-  'Нет правильного ответа',
-  'Оба варианта'
-];
-
-/// {@template survey_screen}
-/// SurveyScreen widget.
+/// {@template options_answer_widget}
+/// OptionsAnswerWidget widget.
 /// {@endtemplate}
-class SurveyScreen extends StatefulWidget {
-  /// {@macro survey_screen}
-  const SurveyScreen({super.key});
+class OptionsAnswerWidget extends StatefulWidget {
+  /// {@macro options_answer_widget}
+  const OptionsAnswerWidget({
+    super.key,
+    required this.questionEntity,
+    required this.onPressed,
+  });
 
+  final QuestionEntity questionEntity;
+  final VoidCallback onPressed;
   @override
-  State<SurveyScreen> createState() => _SurveyScreenState();
+  State<OptionsAnswerWidget> createState() => _OptionsAnswerWidgetState();
 }
 
-class _SurveyScreenState extends State<SurveyScreen> {
+class _OptionsAnswerWidgetState extends State<OptionsAnswerWidget> {
   int? selectedIndex;
 
-  void showAnswer(String answer) {
+  void callBack() {
+    widget.onPressed.call();
+    Navigator.of(context).pop();
+  }
+
+  void showAnswer(String answer, String trueAnswer) {
     showModalBottomSheet(
+        isDismissible: false,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(20.0))),
         context: context,
@@ -34,36 +38,34 @@ class _SurveyScreenState extends State<SurveyScreen> {
           return Container(
             padding: const EdgeInsets.fromLTRB(10, 24, 10, 24),
             height: MediaQuery.of(context).size.height * 2.7 / 10,
-            child: identical(answer, trueAnswer)
+            child: answer == trueAnswer
                 ? AnswerToQuestionWidget(
                     assetImage: 'assets/icons/true.svg',
                     right: true,
                     correctAnswer: trueAnswer,
-                    onPressed: () {})
+                    onPressed: () => callBack())
                 : AnswerToQuestionWidget(
                     assetImage: 'assets/icons/ph_x.svg',
                     right: false,
                     correctAnswer: trueAnswer,
-                    onPressed: () {}),
+                    onPressed: () => callBack()),
           );
         });
   }
 
-  String trueAnswer = 'Людей с высокой самооценкой';
-
   @override
   Widget build(BuildContext context) {
+    final data = widget.questionEntity;
     return Scaffold(
-      appBar: AppBar(),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Padding(
-              padding: EdgeInsets.all(10.0),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Text(
-                'Синдром самозванца больше характерен для',
-                style: TextStyle(
+                data.question,
+                style: const TextStyle(
                     fontFamily: 'GoogleSans',
                     fontStyle: FontStyle.normal,
                     fontSize: 24,
@@ -73,7 +75,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
             Center(
                 child: ListView.builder(
                     shrinkWrap: true,
-                    itemCount: _questions.length,
+                    itemCount: data.answers.length,
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
@@ -102,7 +104,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
                                           color: Colors.grey, width: 1.5)),
                               child: Center(
                                   child: Text(
-                                _questions[index],
+                                data.answers[index],
                                 style: const TextStyle(
                                     fontFamily: 'GoogleSans',
                                     fontStyle: FontStyle.normal,
@@ -119,7 +121,8 @@ class _SurveyScreenState extends State<SurveyScreen> {
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
                   onPressed: () {
-                    showAnswer('Людей с высокой амооценкой');
+                    showAnswer(
+                        data.answers[selectedIndex!], data.correctlyAnswer!);
                   },
                   style: selectedIndex != null
                       ? ElevatedButton.styleFrom(

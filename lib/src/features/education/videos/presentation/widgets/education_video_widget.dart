@@ -1,11 +1,13 @@
 import 'package:eneler_mariia/src/common/components/styles/text_styles.dart';
+import 'package:eneler_mariia/src/features/education/videos/domain/entities/training_video_entity.dart';
 import 'package:eneler_mariia/src/features/education/videos/presentation/screens/education_video_screen.dart';
 import 'package:eneler_mariia/src/features/education/videos/presentation/screens/video_list_screen.dart';
 import 'package:flutter/material.dart';
 
 class EducationVideoWidget extends StatelessWidget {
-  const EducationVideoWidget({super.key});
+  const EducationVideoWidget({super.key, required this.trainingVideoEntity});
 
+  final TrainingVideoEntity trainingVideoEntity;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,11 +37,11 @@ class EducationVideoWidget extends StatelessWidget {
             ),
           ),
           Text(
-            'Синдром самозванца',
+            trainingVideoEntity.name,
             style: headerTextStyle,
           ),
           Text(
-            'Все о синдроме самозванца, как с ним справиться и жить уверенно',
+            trainingVideoEntity.descrpiption,
             maxLines: 2,
             overflow: TextOverflow.fade,
             style: descriptionTextStyle,
@@ -52,13 +54,13 @@ class EducationVideoWidget extends StatelessWidget {
                 size: 20,
               ),
               Text(
-                'Михаил Ледер',
+                trainingVideoEntity.speaker,
                 style: speakerTextStyle,
               )
             ],
           ),
           Text(
-            'Доступно до 15.10.2023',
+            'Доступно до ${trainingVideoEntity.availableUntil}',
             style: TextStyle(
                 color: Color.fromRGBO(96, 101, 214, 1),
                 letterSpacing: -0.3,
@@ -74,7 +76,9 @@ class EducationVideoWidget extends StatelessWidget {
                 onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => EducationVideoScreen())),
+                        builder: (context) => EducationVideoScreen(
+                              trainingVideoEntity: trainingVideoEntity,
+                            ))),
                 child: Text(
                   'Начать',
                   style: TextStyle(

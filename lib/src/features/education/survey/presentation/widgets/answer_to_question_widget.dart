@@ -54,8 +54,8 @@ class AnswerToQuestionWidget extends StatelessWidget {
           padding: const EdgeInsets.all(5.0),
           child: Text(
             right
-                ? '$correctAnswerText $correctAnswer'
-                : '$youAnsweredCorrectly $correctAnswer',
+                ? '$youAnsweredCorrectly $correctAnswer'
+                : '$correctAnswerText $correctAnswer',
             style: const TextStyle(
                 fontStyle: FontStyle.normal,
                 fontFamily: 'GoogleSans',
@@ -63,7 +63,11 @@ class AnswerToQuestionWidget extends StatelessWidget {
                 fontSize: 16.0),
           ),
         ),
-        FurtherButtonWidget(onPressed: () => onPressed.call())
+        const Spacer(),
+        FurtherButtonWidget(onPressed: () {
+          onPressed.call();
+          // Navigator.of(context).pop();
+        })
       ],
     );
   }
