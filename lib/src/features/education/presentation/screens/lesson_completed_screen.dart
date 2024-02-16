@@ -1,4 +1,3 @@
-import 'package:eneler_mariia/src/common/components/styles/text_styles.dart';
 import 'package:eneler_mariia/src/common/widgets/buttons/home_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

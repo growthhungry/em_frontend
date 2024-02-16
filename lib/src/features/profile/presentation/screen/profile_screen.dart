@@ -37,26 +37,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Center(
         child: Column(
           children: [
-            Column(
-              children: (userModel != null)
-                  ? <Widget>[
-                      CircleAvatar(
-                        child: (userModel!.photoUrl.isEmpty)
-                            ? Text('userPhoto is empty')
-                            : Image.network(
-                                userModel!.photoUrl,
-                                errorBuilder: (context, err, stack) {
-                                  return CircleAvatar(
-                                    backgroundColor: Colors.red,
-                                  );
-                                },
-                              ),
-                      ),
-                      Text(userModel!.email),
-                      Text(userModel!.userName)
-                    ]
-                  : [Text('user model is empty')],
-            ),
+            // Column(
+            //   children: (userModel != null)
+            //       ? <Widget>[
+            //           CircleAvatar(
+            //             child: (userModel!.photoUrl.isEmpty)
+            //                 ? Text('userPhoto is empty')
+            //                 : Image.network(
+            //                     userModel!.photoUrl,
+            //                     errorBuilder: (context, err, stack) {
+            //                       return CircleAvatar(
+            //                         backgroundColor: Colors.red,
+            //                       );
+            //                     },
+            //                   ),
+            //           ),
+            //           Text(userModel!.email),
+            //           Text(userModel!.userName)
+            //         ]
+            //       : [Text('user model is empty')],
+            // ),
             const SizedBox(height: 50),
             Container(
               margin: const EdgeInsets.only(left: 16, right: 16),

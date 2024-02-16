@@ -1,3 +1,4 @@
+import 'package:eneler_mariia/src/features/application/widgets/navigation_widget.dart';
 import 'package:eneler_mariia/src/features/application/wrappers/localizations_wrapper.dart';
 import 'package:eneler_mariia/src/features/authentication/presentation/screens/auth_listener.dart';
 import 'package:eneler_mariia/src/features/authentication/presentation/screens/auth_screen.dart';
@@ -15,6 +16,6 @@ class App extends StatelessWidget {
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(useMaterial3: true),
-        home: AuthListener());
+        home: NavigationWidget());
   }
 }
