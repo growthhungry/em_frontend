@@ -1,4 +1,6 @@
+import 'package:eneler_mariia/src/common/dependencies/dependencies.dart';
 import 'package:eneler_mariia/src/features/application/wrappers/localizations_wrapper.dart';
+import 'package:eneler_mariia/src/features/authentication/data/data_sources/external/google_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -25,6 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     'en': 'English'
   };
 
+  final userModel = GoogleAuth.instance.userModel;
   @override
   Widget build(BuildContext context) {
     final languageCode = language.keys.map((e) => e).toList();
@@ -34,6 +37,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Center(
         child: Column(
           children: [
+            Column(
+              children: (userModel != null)
+                  ? <Widget>[
+                      CircleAvatar(
+                        child: (userModel!.photoUrl.isEmpty)
+                            ? Text('userPhoto is empty')
+                            : Image.network(
+                                userModel!.photoUrl,
+                                errorBuilder: (context, err, stack) {
+                                  return CircleAvatar(
+                                    backgroundColor: Colors.red,
+                                  );
+                                },
+                              ),
+                      ),
+                      Text(userModel!.email),
+                      Text(userModel!.userName)
+                    ]
+                  : [Text('user model is empty')],
+            ),
             const SizedBox(height: 50),
             Container(
               margin: const EdgeInsets.only(left: 16, right: 16),
@@ -64,7 +87,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   _SettingItemWidget(
                       iconAssetPath: 'assets/icons/exit.svg',
                       title: AppLocalizations.of(context)!.exit,
-                      voidCallback: () {})
+                      voidCallback: () {
+                        Dependencies.of(context)
+                            .authDataSources
+                            .googleSignOut();
+                      })
                 ],
               ),
             ),

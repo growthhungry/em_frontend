@@ -1,5 +1,5 @@
 import 'package:eneler_mariia/src/features/application/app.dart';
-import 'package:eneler_mariia/src/features/application/dependencies/dependencies.dart';
+import 'package:eneler_mariia/src/common/dependencies/dependencies.dart';
 import 'package:eneler_mariia/src/features/application/wrappers/localizations_wrapper.dart';
 import 'package:flutter/material.dart';
 

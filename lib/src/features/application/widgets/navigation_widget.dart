@@ -1,5 +1,5 @@
 import 'package:eneler_mariia/src/common/components/colors/colors.dart';
-import 'package:eneler_mariia/src/features/education/videos/presentation/screens/video_list_screen.dart';
+import 'package:eneler_mariia/src/features/education/presentation/screens/video_list_screen.dart';
 import 'package:eneler_mariia/src/features/profile/presentation/screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 
