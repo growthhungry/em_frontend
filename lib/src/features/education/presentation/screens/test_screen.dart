@@ -1,5 +1,6 @@
 import 'package:eneler_mariia/src/common/widgets/buttons/further_button_widget.dart';
 import 'package:eneler_mariia/src/features/education/presentation/screens/lesson_completed_screen.dart';
+import 'package:eneler_mariia/src/features/education/presentation/widgets/checkboxes_answer_widget.dart';
 import 'package:eneler_mariia/src/features/education/presentation/widgets/long_answer_widget.dart';
 import 'package:eneler_mariia/src/features/education/presentation/widgets/options_answer_widget.dart';
 import 'package:eneler_mariia/src/features/education/presentation/widgets/short_answer_widget.dart';
@@ -55,10 +56,18 @@ class _TestScreenState extends State<TestScreen> with TickerProviderStateMixin {
                     questionEntity: data[index],
                     onPressed: onPressed,
                   );
+                case 'checkBoxes':
+                  return CheckboxesAnswerWidget(
+                    questionEntity: data[index],
+                    onPressed: onPressed,
+                  );
                 default:
                   return Align(
                     alignment: Alignment.bottomCenter,
-                    child: FurtherButtonWidget(onPressed: () => onPressed()),
+                    child: FurtherButtonWidget(
+                      onPressed: () => onPressed(),
+                      isActive: true,
+                    ),
                   );
               }
             }),

@@ -64,10 +64,11 @@ class AnswerToQuestionWidget extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        FurtherButtonWidget(onPressed: () {
-          onPressed.call();
-          // Navigator.of(context).pop();
-        })
+        FurtherButtonWidget(
+            isActive: true,
+            onPressed: () {
+              onPressed.call();
+            })
       ],
     );
   }

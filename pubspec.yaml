@@ -32,6 +32,10 @@ dependencies:
   sign_in_with_apple: ^5.0.0
   logger: ^2.0.2+1
   equatable: ^2.0.5
+  cloud_firestore: ^4.15.6
+
+
+        
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +43,9 @@ dev_dependencies:
 
 
   flutter_lints: ^2.0.0
+
+
+
 
 
 flutter:
@@ -49,6 +56,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/flags/russia.svg
     - assets/flags/
     - assets/icons/
     - assets/json/

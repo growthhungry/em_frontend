@@ -1,9 +1,9 @@
 import 'package:eneler_mariia/src/common/components/styles/text_styles.dart';
 import 'package:eneler_mariia/src/common/widgets/buttons/further_button_widget.dart';
 import 'package:eneler_mariia/src/features/education/presentation/screens/test_screen.dart';
-import 'package:eneler_mariia/src/features/education/presentation/widgets/switch_answer_widget.dart';
 import 'package:eneler_mariia/src/features/education/domain/entities/training_video_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class EducationVideoScreen extends StatefulWidget {
   const EducationVideoScreen({super.key, required this.trainingVideoEntity});
@@ -14,6 +14,16 @@ class EducationVideoScreen extends StatefulWidget {
 }
 
 class _EducationVideoScreenState extends State<EducationVideoScreen> {
+  late YoutubePlayerController _youtubePlayerController;
+
+  @override
+  void initState() {
+    super.initState();
+    _youtubePlayerController = YoutubePlayerController(
+        initialVideoId: YoutubePlayer.convertUrlToId(
+            widget.trainingVideoEntity.linkToYoutubeVideo)!);
+  }
+
   @override
   Widget build(BuildContext context) {
     final data = widget.trainingVideoEntity;
@@ -25,7 +35,13 @@ class _EducationVideoScreenState extends State<EducationVideoScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const SizedBox(height: 182),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(24),
+              child: SizedBox(
+                height: 182,
+                child: YoutubePlayer(controller: _youtubePlayerController),
+              ),
+            ),
             Text(
               data.name,
               style: headerTextStyle,
@@ -37,11 +53,16 @@ class _EducationVideoScreenState extends State<EducationVideoScreen> {
             ),
             const Spacer(),
             FurtherButtonWidget(
-                onPressed: () => Navigator.push(
+              onPressed: () {
+                _youtubePlayerController.pause();
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => TestScreen(
-                            trainingVideoEntity: widget.trainingVideoEntity))))
+                            trainingVideoEntity: widget.trainingVideoEntity)));
+              },
+              isActive: false,
+            )
           ],
         ),
       )),

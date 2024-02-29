@@ -2,6 +2,7 @@ import 'package:eneler_mariia/src/features/application/widgets/navigation_widget
 import 'package:eneler_mariia/src/features/application/wrappers/localizations_wrapper.dart';
 import 'package:eneler_mariia/src/features/authentication/presentation/screens/auth_listener.dart';
 import 'package:eneler_mariia/src/features/authentication/presentation/screens/auth_screen.dart';
+import 'package:eneler_mariia/src/features/education/presentation/screens/test_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -16,6 +17,6 @@ class App extends StatelessWidget {
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(useMaterial3: true),
-        home: NavigationWidget());
+        home: AuthListener());
   }
 }

@@ -18,6 +18,15 @@ class ShortAnswerWidget extends StatefulWidget {
 }
 
 class _ShortAnswerWidgetState extends State<ShortAnswerWidget> {
+  final _textController = TextEditingController();
+
+  bool _isActive = false;
+  @override
+  void initState() {
+    super.initState();
+    _textController.addListener(listen);
+  }
+
   @override
   Widget build(BuildContext context) {
     final data = widget.questionEntity;
@@ -32,6 +41,7 @@ class _ShortAnswerWidgetState extends State<ShortAnswerWidget> {
               SizedBox(
                 height: 46,
                 child: TextFormField(
+                  controller: _textController,
                   decoration: InputDecoration(
                       hintText: 'Напишите свой текст здесь',
                       hintStyle: hintSurveyTextSyle,
@@ -46,11 +56,28 @@ class _ShortAnswerWidgetState extends State<ShortAnswerWidget> {
                 ),
               ),
               const Spacer(),
-              FurtherButtonWidget(onPressed: () => widget.onPressed.call())
+              FurtherButtonWidget(
+                  isActive: _isActive,
+                  onPressed: () {
+                    FocusScope.of(context).requestFocus(FocusNode());
+                    widget.onPressed.call();
+                  })
             ],
           ),
         ),
       ),
     );
+  }
+
+  void listen() {
+    if (_textController.text.isNotEmpty) {
+      setState(() {
+        _isActive = true;
+      });
+    } else {
+      setState(() {
+        _isActive = false;
+      });
+    }
   }
 }

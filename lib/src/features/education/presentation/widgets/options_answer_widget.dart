@@ -24,33 +24,36 @@ class _OptionsAnswerWidgetState extends State<OptionsAnswerWidget> {
   int? selectedIndex;
 
   void callBack() {
-    widget.onPressed.call();
     Navigator.of(context).pop();
+
+    widget.onPressed.call();
   }
 
   void showAnswer(String answer, String trueAnswer) {
-    showModalBottomSheet(
-        isDismissible: false,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20.0))),
-        context: context,
-        builder: (context) {
-          return Container(
-            padding: const EdgeInsets.fromLTRB(10, 24, 10, 24),
-            height: MediaQuery.of(context).size.height * 2.7 / 10,
-            child: answer == trueAnswer
-                ? AnswerToQuestionWidget(
-                    assetImage: 'assets/icons/true.svg',
-                    right: true,
-                    correctAnswer: trueAnswer,
-                    onPressed: () => callBack())
-                : AnswerToQuestionWidget(
-                    assetImage: 'assets/icons/ph_x.svg',
-                    right: false,
-                    correctAnswer: trueAnswer,
-                    onPressed: () => callBack()),
-          );
-        });
+    if (selectedIndex != null) {
+      showModalBottomSheet(
+          isDismissible: false,
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(20.0))),
+          context: context,
+          builder: (context) {
+            return Container(
+              padding: const EdgeInsets.fromLTRB(10, 24, 10, 24),
+              height: MediaQuery.of(context).size.height * 3 / 10,
+              child: answer == trueAnswer
+                  ? AnswerToQuestionWidget(
+                      assetImage: 'assets/icons/true.svg',
+                      right: true,
+                      correctAnswer: trueAnswer,
+                      onPressed: () => callBack())
+                  : AnswerToQuestionWidget(
+                      assetImage: 'assets/icons/ph_x.svg',
+                      right: false,
+                      correctAnswer: trueAnswer,
+                      onPressed: () => callBack()),
+            );
+          });
+    }
   }
 
   @override

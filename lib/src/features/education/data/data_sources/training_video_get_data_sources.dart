@@ -7,6 +7,20 @@ abstract interface class ITrainingVideoDataSources {
   Future<List<TrainingVideoModel>> fetchVideo([String? userId]);
 }
 
+/// {@template training_video_get_data_sources}
+/// FirebaseTrainingVideoDataSources class.
+/// {@endtemplate}
+final class FirebaseTrainingVideoDataSources
+    implements ITrainingVideoDataSources {
+  /// {@macro training_video_get_data_sources}
+
+  @override
+  Future<List<TrainingVideoModel>> fetchVideo([String? userId]) {
+    // TODO: implement fetchVideo
+    throw UnimplementedError();
+  }
+}
+
 final class MockTrainingVideoDataSources implements ITrainingVideoDataSources {
   @override
   Future<List<TrainingVideoModel>> fetchVideo([String? userId]) async {

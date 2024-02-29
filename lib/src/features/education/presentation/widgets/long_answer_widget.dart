@@ -19,6 +19,16 @@ class LongAnswerWidget extends StatefulWidget {
 
 /// State for widget LongAnswerWidget.
 class _LongAnswerWidgetState extends State<LongAnswerWidget> {
+  final _textController = TextEditingController();
+
+  bool isActive = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _textController.addListener(listener);
+  }
+
   @override
   Widget build(BuildContext context) {
     final data = widget.questionEntity;
@@ -34,12 +44,13 @@ class _LongAnswerWidgetState extends State<LongAnswerWidget> {
                     fontFamily: 'GoogleSans',
                     fontStyle: FontStyle.normal,
                     fontWeight: FontWeight.w500,
-                    fontSize: 24,
+                    fontSize: 20,
                     wordSpacing: 0.2),
               ),
               const SizedBox(height: 20),
               Expanded(
                 child: TextField(
+                  controller: _textController,
                   keyboardType: TextInputType.multiline,
                   textAlignVertical: TextAlignVertical.top,
                   maxLines: null,
@@ -63,11 +74,28 @@ class _LongAnswerWidgetState extends State<LongAnswerWidget> {
                 ),
               ),
               const SizedBox(height: 20),
-              FurtherButtonWidget(onPressed: () => widget.onPressed.call())
+              FurtherButtonWidget(
+                  isActive: isActive,
+                  onPressed: () {
+                    FocusScope.of(context).requestFocus(FocusNode());
+                    widget.onPressed.call();
+                  })
             ],
           ),
         ),
       ),
     );
+  }
+
+  void listener() {
+    if (_textController.text.isNotEmpty) {
+      setState(() {
+        isActive = true;
+      });
+    } else {
+      setState(() {
+        isActive = false;
+      });
+    }
   }
 }

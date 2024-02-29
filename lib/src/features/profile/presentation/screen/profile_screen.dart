@@ -1,14 +1,16 @@
+import 'package:eneler_mariia/src/common/components/styles/text_styles.dart';
 import 'package:eneler_mariia/src/common/dependencies/dependencies.dart';
 import 'package:eneler_mariia/src/features/application/wrappers/localizations_wrapper.dart';
 import 'package:eneler_mariia/src/features/authentication/data/data_sources/external/google_auth.dart';
+import 'package:eneler_mariia/src/features/profile/presentation/widgets/exit_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 const _langFlags = <String>[
-  'assets/flags/kazakhstan.svg',
-  'assets/flags/kyrgyzstan.svg',
   'assets/flags/russia.svg',
+  'assets/flags/kyrgyzstan.svg',
+  'assets/flags/kyrgyzstan.svg',
   'assets/flags/usa.svg'
 ];
 
@@ -27,6 +29,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     'en': 'English'
   };
 
+  
+
   final userModel = GoogleAuth.instance.userModel;
   @override
   Widget build(BuildContext context) {
@@ -37,27 +41,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Center(
         child: Column(
           children: [
-            // Column(
-            //   children: (userModel != null)
-            //       ? <Widget>[
-            //           CircleAvatar(
-            //             child: (userModel!.photoUrl.isEmpty)
-            //                 ? Text('userPhoto is empty')
-            //                 : Image.network(
-            //                     userModel!.photoUrl,
-            //                     errorBuilder: (context, err, stack) {
-            //                       return CircleAvatar(
-            //                         backgroundColor: Colors.red,
-            //                       );
-            //                     },
-            //                   ),
-            //           ),
-            //           Text(userModel!.email),
-            //           Text(userModel!.userName)
-            //         ]
-            //       : [Text('user model is empty')],
-            // ),
             const SizedBox(height: 50),
+            const SizedBox(
+              height: 90,
+              width: 90,
+              child: CircleAvatar(
+                backgroundColor: Colors.grey,
+              ),
+            ),
+            // Text(userModel!.userName),
+            // Text(userModel!.email, style: descriptionTextStyle),
+            const SizedBox(height: 20),
             Container(
               margin: const EdgeInsets.only(left: 16, right: 16),
               height: 106,
@@ -91,6 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Dependencies.of(context)
                             .authDataSources
                             .googleSignOut();
+                        // showExitDialog();
                       })
                 ],
               ),
@@ -99,6 +94,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       )),
     );
+  }
+
+  void showExitDialog() {
+    showModalBottomSheet(
+        context: context,
+        builder: (contex) {
+          return SizedBox(
+            height: 200,
+            width: double.infinity,
+            child: Column(
+              children: [
+                const Text("Вы хотите выйти?"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    ExitButton(
+                        color: Colors.red,
+                        onPressed: Navigator.of(context).pop,
+                        title: 'Выйти'),
+                    ExitButton(
+                        color: const Color.fromRGBO(96, 101, 214, 1),
+                        onPressed: Navigator.of(context).pop,
+                        title: 'Отмена'),
+                  ],
+                )
+              ],
+            ),
+          );
+        });
   }
 
   void selectLanguage(
@@ -123,6 +147,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       onTap: () => selectLanguage(context, index, languageCode),
                       child: ListTile(
                         title: Text(languageList[index]),
+                        leading: ClipRect(
+                          clipBehavior: Clip.antiAlias,
+                          child: CircleAvatar(
+                            child: SvgPicture.asset(
+                              _langFlags[index],
+                              clipBehavior: Clip.antiAlias,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
 
                         /// Compare the selected language with an element in the [ languageCode ] list
                         trailing: (LocalizationsWrapper.of(context)

@@ -1,5 +1,6 @@
+// ignore_for_file: unused_element
+
 import 'package:eneler_mariia/src/common/dependencies/dependencies.dart';
-import 'package:eneler_mariia/src/features/education/presentation/screens/test_screen.dart';
 import 'package:eneler_mariia/src/features/education/domain/entities/training_video_entity.dart';
 import 'package:eneler_mariia/src/features/education/presentation/bloc/training_video_bloc.dart';
 import 'package:eneler_mariia/src/features/education/presentation/widgets/education_video_widget.dart';
@@ -27,8 +28,7 @@ class _VideoListScreenState extends State<VideoListScreen> {
                   return const CircularProgressIndicator();
                 case Completed():
                   return _CompletedWidget(
-                    trainingVideoList: state.trainingVideoList,
-                  );
+                      trainingVideoList: state.trainingVideoList);
                 case Failure():
                   return const Text('Failure state');
               }

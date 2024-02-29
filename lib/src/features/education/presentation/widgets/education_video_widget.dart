@@ -1,8 +1,8 @@
 import 'package:eneler_mariia/src/common/components/styles/text_styles.dart';
 import 'package:eneler_mariia/src/features/education/domain/entities/training_video_entity.dart';
 import 'package:eneler_mariia/src/features/education/presentation/screens/education_video_screen.dart';
-import 'package:eneler_mariia/src/features/education/presentation/screens/video_list_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EducationVideoWidget extends StatelessWidget {
   const EducationVideoWidget({super.key, required this.trainingVideoEntity});
@@ -64,33 +64,12 @@ class EducationVideoWidget extends StatelessWidget {
             style: TextStyle(
                 color: Color.fromRGBO(96, 101, 214, 1),
                 letterSpacing: -0.3,
+                fontFamily: 'GoogleSans',
+                fontStyle: FontStyle.normal,
                 fontSize: 15,
                 fontWeight: FontWeight.w400),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 16, bottom: 12),
-            child: SizedBox(
-              height: 42,
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => EducationVideoScreen(
-                              trainingVideoEntity: trainingVideoEntity,
-                            ))),
-                child: Text(
-                  'Начать',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
-                ),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromRGBO(96, 101, 214, 1)),
-              ),
-            ),
-          ),
+          _StartButton(trainingVideoEntity: trainingVideoEntity),
           ClipRRect(
             borderRadius: BorderRadius.circular(24),
             child: SizedBox(
@@ -100,8 +79,42 @@ class EducationVideoWidget extends StatelessWidget {
                 color: Color.fromRGBO(67, 178, 98, 1),
               ),
             ),
-          )
+          ),
         ],
+      ),
+    );
+  }
+}
+
+/// {@template education_video_widget}
+/// _StartButton widget.
+/// {@endtemplate}
+class _StartButton extends StatelessWidget {
+  /// {@macro education_video_widget}
+  const _StartButton({super.key, required this.trainingVideoEntity});
+
+  final TrainingVideoEntity trainingVideoEntity;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16, bottom: 12),
+      child: SizedBox(
+        height: 42,
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => EducationVideoScreen(
+                        trainingVideoEntity: trainingVideoEntity,
+                      ))),
+          child: Text(
+            AppLocalizations.of(context)!.begin,
+            style: startButtonTextStyle,
+          ),
+          style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromRGBO(96, 101, 214, 1)),
+        ),
       ),
     );
   }

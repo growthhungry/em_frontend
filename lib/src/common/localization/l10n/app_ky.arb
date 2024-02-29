@@ -13,5 +13,8 @@
   "lessonCompletedSuccesffuly" : "Lesson completed succesfful",
   "toMain" : "To main",
   "exit" : "Exit",
-  "language" : "Тил"
+  "language" : "Тил",
+  "profile" : "Profile",
+  "lessons" : "Уроки",
+  "begin": "Begin"
 }

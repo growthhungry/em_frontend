@@ -10,6 +10,9 @@
   "correctAnswer": "Правильный ответ:",
   "lessonCompletedSuccesffuly": "Урок успешно завершен!",
   "toMain": "На главную",
-  "exit" : "Выход",
-  "language" : "Язык"
+  "exit": "Выход",
+  "language": "Язык",
+  "profile": "Профиль",
+  "lessons": "Уроки",
+  "begin": "Начать"
 }
